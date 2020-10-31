@@ -2,50 +2,48 @@
 [![version](https://img.shields.io/badge/version-1.0.1-blue.svg)](https://github.com/Shashwatsingh22/LinuxGun.git)
 <img src="https://img.shields.io/badge/made%20with-python-yellowgreen" />
 
-*LinuxGun is a Linux based TUI tool written in Python. It had been developed in order to easily use the Linux without commands and through this program we can also run the Commands in remote also..* 
+*Online-College-Admission-System is an software based GUI tool written in Python by the use an Module that is tkinter and the data which is gentrated by the this software will saved in the Database (So, I used Mysql)....* 
 
 ```
-You can say we completely automated the Linux by the help Of python like:-
-
--> For The Some basic commands(Pings/Retriving Tha Data From The Clipboard.....)
--> For some Directory & File Related Commands
--> For the Package Management/Software Manegement/conf yum/Install softwares !
--> For Networking Purpose (tranfer file to other system/ running the program(GUI Base or CLI based)) !
--> For The User Settings (Add user/Delete user/change password/....)!
--> Configure Webserver !
--> Gaing information about (IP/Port Scanning/to run script for get the that system is vulnerabel or not) BY THE HELP OF TOOL(NMAP) !
--> Configure Router Gateway !
--> Partition !
--> Docker (setup/conf/pull/lunch)
+When we launch the project at first we can see the loading page 
+Working of loading page: We have use GIF for making Loading page, we have used time module for stopping for 5 sec at the loading page. We also use sleep function which uses the parameter of how many seconds you want to sleep for stopping. After this we terminate this function at a dashboard of login page.
+Then we will be given three options of Admin page, Registered student, New admission.
+a.	Admin Panel:  In this panel first the person will enter the credentials to enter the panel. Then he/she will see a Admin dashboard. Then he/she can see the no. of students registered/applied/rejected/selected. 
+b.	Registered Student: In this panel the registered student can enter the credential. He can check that whether he is selected or rejected. He can also browse the course details. 
+c.	New admission: Whenever a new admission case is there we will ask to fill up the form, which will include name, father’s name, mother’s name, phone number, 12th result, College entrance test result, after that he will be asked to enter username and password which will be saved for future use and will help the student to login again.
 
 ```
 ## PreRequisite : Hardware :
 ```
-1. Operating System : Linux (preferrably RedHat Linux)
-2. RAM : More than 1 GB
-3. Storage : Bare Minimum Requirements
+1. RAM : More than 1 GB
+2. Storage : Bare Minimum Requirements
 ```
 
 ## Installation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install   os module, getpass module, pyfiglet. 
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install tkinter module,mysql-connector module. 
 
 ```bash
-pip install os
-pip install getpass
-pip install pyfiglet
+
+pip install tkinter
+pip install mysql-connector
+
 ```
 
 ## How to run LinuxGun: 
 ``` 
-Just Clone this repositry : git clone https://github.com/Shashwatsingh22/LinuxGun.git
+Just Clone this repositry : git clone https://github.com/Shashwatsingh22/Online-College-Admission-Management-System-Project.git
+
 ```
 
 ## Demo
 
-![1](https://raw.githubusercontent.com/Shashwatsingh22/LinuxGun/master/Demo/1.png)
-![2](https://raw.githubusercontent.com/Shashwatsingh22/LinuxGun/master/Demo/2.png)
-![3](https://raw.githubusercontent.com/Shashwatsingh22/LinuxGun/master/Demo/3.png)
+![1](https://github.com/Shashwatsingh22/Online-College-Admission-Management-System-Project/tree/main/Demo/1.png)
+![2](https://github.com/Shashwatsingh22/Online-College-Admission-Management-System-Project/tree/main/Demo/2.png)
+![3](https://github.com/Shashwatsingh22/Online-College-Admission-Management-System-Project/tree/main/Demo/3.png)
+![4](https://github.com/Shashwatsingh22/Online-College-Admission-Management-System-Project/tree/main/Demo/4.png)
+![5](https://github.com/Shashwatsingh22/Online-College-Admission-Management-System-Project/tree/main/Demo/5.png)
+![6](https://github.com/Shashwatsingh22/Online-College-Admission-Management-System-Project/tree/main/Demo/6.png)
 
 
 
