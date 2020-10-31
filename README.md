@@ -38,12 +38,12 @@ Just Clone this repositry : git clone https://github.com/Shashwatsingh22/Online-
 
 ## Demo
 
-![1](https://github.com/Shashwatsingh22/Online-College-Admission-Management-System-Project/Demo/1.png)
-![2](https://github.com/Shashwatsingh22/Online-College-Admission-Management-System-Project/Demo/2.png)
-![3](https://github.com/Shashwatsingh22/Online-College-Admission-Management-System-Project/Demo/3.png)
-![4](https://github.com/Shashwatsingh22/Online-College-Admission-Management-System-Project/Demo/4.png)
-![5](https://github.com/Shashwatsingh22/Online-College-Admission-Management-System-Project/Demo/5.png)
-![6](https://github.com/Shashwatsingh22/Online-College-Admission-Management-System-Project/Demo/6.png)
+![1](https://github.com/Shashwatsingh22/Online-College-Admission-Management-System-Project/tree/main/Demo/1.png)
+![2](https://github.com/Shashwatsingh22/Online-College-Admission-Management-System-Project/tree/main/Demo/2.png)
+![3](https://github.com/Shashwatsingh22/Online-College-Admission-Management-System-Project/tree/main/Demo/3.png)
+![4](https://github.com/Shashwatsingh22/Online-College-Admission-Management-System-Project/tree/main/Demo/4.png)
+![5](https://github.com/Shashwatsingh22/Online-College-Admission-Management-System-Project/tree/main/Demo/5.png)
+![6](https://github.com/Shashwatsingh22/Online-College-Admission-Management-System-Project/tree/main/Demo/6.png)
 
 
 
