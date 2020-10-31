@@ -58,7 +58,7 @@ def call_admin_dashboard():
 
 
 def call_student_Dashboard():
-    student_login_page().forget()
+    student_login_page.forget()
     f1.forget()
     fbmain.forget()
     student_dashboard()
@@ -86,7 +86,7 @@ def check_pass_admin():
     mydb1 = msql.connect(host="localhost", user="Mahakaal", passwd="Ma4akaa1#@", database="reg_admin")
     str = UniqueID.get()
     mycurss = mydb1.cursor()
-    sqlform = "SELECT * FROM admin WHERE uname=" + "'" + str + "'"
+    sqlform = "SELECT * FROM admin WHERE uniqueID=" + "'" + str + "'"
     mycurss.execute(sqlform)
     myresult = mycurss.fetchall()
     for i in myresult:
@@ -100,7 +100,7 @@ def check_pass_admin():
 def check_pass_student():
     str = stud_user.get()
     mycurss = mydb.cursor()
-    sqlform = "SELECT * FROM admin WHERE uname=" + "'" + str + "'"
+    sqlform = "SELECT * FROM student WHERE uname=" + "'" + str + "'"
     mycurss.execute(sqlform)
     myresult = mycurss.fetchall()
     for i in myresult:
