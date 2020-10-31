@@ -1,5 +1,5 @@
 # Online-College-Admission-Management-System-Project
-[![version](https://img.shields.io/badge/version-1.0.1-blue.svg)](https://github.com/Shashwatsingh22/LinuxGun.git)
+[![version](https://img.shields.io/badge/version-1.0.1-blue.svg)](https://github.com/Shashwatsingh22/Online-College-Admission-Management-System-Project.git)
 <img src="https://img.shields.io/badge/made%20with-python-yellowgreen" />
 
 *Online-College-Admission-System is an software based GUI tool written in Python by the use an Module that is tkinter and the data which is gentrated by the this software will saved in the Database (So, I used Mysql)....* 
@@ -30,7 +30,7 @@ pip install mysql-connector
 
 ```
 
-## How to run LinuxGun: 
+## How to run Admission-Management-System: 
 ``` 
 Just Clone this repositry : git clone https://github.com/Shashwatsingh22/Online-College-Admission-Management-System-Project.git
 
@@ -38,12 +38,12 @@ Just Clone this repositry : git clone https://github.com/Shashwatsingh22/Online-
 
 ## Demo
 
-![1](https://github.com/Shashwatsingh22/Online-College-Admission-Management-System-Project/tree/main/Demo/1.png)
-![2](https://github.com/Shashwatsingh22/Online-College-Admission-Management-System-Project/tree/main/Demo/2.png)
-![3](https://github.com/Shashwatsingh22/Online-College-Admission-Management-System-Project/tree/main/Demo/3.png)
-![4](https://github.com/Shashwatsingh22/Online-College-Admission-Management-System-Project/tree/main/Demo/4.png)
-![5](https://github.com/Shashwatsingh22/Online-College-Admission-Management-System-Project/tree/main/Demo/5.png)
-![6](https://github.com/Shashwatsingh22/Online-College-Admission-Management-System-Project/tree/main/Demo/6.png)
+![1](https://raw.githubusercontent.com/Shashwatsingh22/Online-College-Admission-Management-System-Project/main/Demo/1.png)
+![2](https://raw.githubusercontent.com/Shashwatsingh22/Online-College-Admission-Management-System-Project/main/Demo/2.png)
+![3](https://raw.githubusercontent.com/Shashwatsingh22/Online-College-Admission-Management-System-Project/main/Demo/3.png)
+![4](https://raw.githubusercontent.com/Shashwatsingh22/Online-College-Admission-Management-System-Project/main/Demo/4.png)
+![5](https://raw.githubusercontent.com/Shashwatsingh22/Online-College-Admission-Management-System-Project/main/Demo/5.png)
+![6](https://raw.githubusercontent.com/Shashwatsingh22/Online-College-Admission-Management-System-Project/main/Demo/6.png)
 
 
 
