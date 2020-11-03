@@ -32,17 +32,23 @@ Studentpasswrd = StringVar()
 
 #--------------------------------This will help us to take the student addmission or Not------------
 def isAddmissionPossible(c12thmarks,famIncome):
-    if c12thmarks>80 and
+    if c12thmarks >= 75 and famIncome <= 250000:
+        return "Pass"
+    elif c12thmarks < 75 and c12thmarks >= 65 and famIncome <= 250000:
+        return "Waiting List"
+    elif c12thmarks < 80 and c12thmarks >= 70 and famIncome <= 25000:
+        return "Pass"
+    else:
+        return "Fail"
 
 #-------------------Registration of the New Student ---->>>>Save to database ------------------
 
 def save_to_database():
     mycurss = mydb.cursor()
-
-    sqlForm = "Insert into student (fname ,lname ,fat_fname, fat_lname ,mot_fname  ,mot_lname  ,phn ,email  ,per ,course ,username  ,pass ,income) values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
-    student1 = (fName.get(),lName.get(),Fat_fName.get(),Fat_lName.get(),Mot_fName.get(),Mot_lName.get(),phn.get(),email.get(),per.get(),Course.get(),set_user.get(),set_pass.get(),income.get())
+    result=isAddmissionPossible(per.get(),income.get())
+    sqlForm = "Insert into student (fname ,lname ,fat_fname, fat_lname ,mot_fname  ,mot_lname  ,phn ,email  ,per ,course ,username  ,pass ,income,result) values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+    student1 = (fName.get(),lName.get(),Fat_fName.get(),Fat_lName.get(),Mot_fName.get(),Mot_lName.get(),phn.get(),email.get(),per.get(),Course.get(),set_user.get(),set_pass.get(),income.get(),result)
     mycurss.execute(sqlForm, student1)
-
     mydb.commit()
 
 #-----------------Credential Check--------------------
@@ -162,17 +168,17 @@ def adminDashboard():
                 dataFrame = Frame(profileFrame)
                 dataFrame.pack(pady=10, padx=10)
                 # ---------------- HERE WE WILL BE FETCHING THE DATA WITH THE HELP OF FILE AND INSERT ALL THE DATA INSIDE THE VARIABLES AND AFTER THAT WE WILL INSERT THAT VARIABLE IN THE STUDENT'S DETAILS.---------------------------------
-                Name = Label(dataFrame, text="Name :", width=20, anchor=E).grid(row=0, column=0)
-                studentName = Label(dataFrame,text=adminname ,width=20, anchor=W).grid(row=0, column=1)
+                Label(dataFrame, text="Name :", width=20, anchor=E).grid(row=0, column=0)
+                Label(dataFrame,text=adminname ,width=20, anchor=W).grid(row=0, column=1)
 
-                Reg = Label(dataFrame, text="UniqueID :", width=20, anchor=E).grid(row=1, column=0)
-                studentReg = Label(dataFrame,text=adminUniqueID1, width=20, anchor=W).grid(row=1, column=1)
+                Label(dataFrame, text="UniqueID :", width=20, anchor=E).grid(row=1, column=0)
+                Label(dataFrame,text=adminUniqueID1, width=20, anchor=W).grid(row=1, column=1)
 
-                Email = Label(dataFrame, text="Job Detail :", width=20, anchor=E).grid(row=3, column=0)
-                studentEmail = Label(dataFrame,text=adminjobdetail ,width=20, anchor=W).grid(row=3, column=1)
+                Label(dataFrame, text="Job Detail :", width=20, anchor=E).grid(row=3, column=0)
+                Label(dataFrame,text=adminjobdetail ,width=20, anchor=W).grid(row=3, column=1)
 
-                Phone = Label(dataFrame, text="Phone :", width=20, anchor=E).grid(row=4, column=0)
-                studentPhone = Label(dataFrame,text=adminphone, width=20, anchor=W).grid(row=4, column=1)
+                Label(dataFrame, text="Phone :", width=20, anchor=E).grid(row=4, column=0)
+                Label(dataFrame,text=adminphone, width=20, anchor=W).grid(row=4, column=1)
 
 #---------------Geting the detail for the registered student-------------------
 
@@ -199,16 +205,22 @@ def adminDashboard():
 
             for i in myresult:
                 count += 1
+            r=0
+            for j in range(count):
+                col=0
+                Label(dataFrame, text="Name :", width=20, anchor=E).grid(row=r, column=col)
+                col+=1
+                Label(dataFrame, text=myresult[j][0]+" "+myresult[j][1], width=20, anchor=W).grid(row=r, column=col)
+                col+=1
+                Label(dataFrame, text="Phone Number :", width=20, anchor=E).grid(row=r, column=col)
+                col+=1
+                Label(dataFrame, text=myresult[j][6], width=20, anchor=W).grid(row=r, column=col)
+                col+=1
+                Label(dataFrame, text="Result :", width=20, anchor=E).grid(row=r, column=col)
+                col+=1
+                Label(dataFrame, text=myresult[j][13], width=20, anchor=W).grid(row=r, column=col)
+                r+=1
 
-            for j in range(4):
-                Label(dataFrame, text="Name :", width=20, anchor=E).grid(row=0, column=0)
-                Label(dataFrame, text=myresult[j][0]+" "+myresult[j][1], width=20, anchor=W).grid(row=0, column=1)
-
-                Label(dataFrame, text="Phone Number :", width=20, anchor=E).grid(row=1, column=0)
-                Label(dataFrame, text=myresult[j][6], width=20, anchor=W).grid(row=1, column=1)
-
-                print("Name : " + myresult[j][0] + " " + myresult[j][1])
-                print("Phone Number : ", myresult[j][2])
 
                 #-- HERE WE WILL BE FETCHING THE DATA WITH THE HELP OF FILE AND INSERT ALL THE DATA INSIDE THE VARIABLES AND AFTER THAT WE WILL INSERT THAT VARIABLE IN THE STUDENT'S DETAILS.---------------------------------
 
@@ -322,14 +334,14 @@ def adminLoginPage():
     f_1 = Frame(fbmain, borderwidth=8, bg="orange")
 
     Label(f_1, text="UniqueID", font="comicsansms 12 bold", bg="orange", fg="white").pack(pady=5, side="left")
-    userEnt = Entry(f_1, textvariable=UniqueID, bg="#ffe05d", fg="white", font="Arial 12 bold").pack(ipady=5, ipadx=5,
+    Entry(f_1, textvariable=UniqueID, bg="#ffe05d", fg="white", font="Arial 12 bold").pack(ipady=5, ipadx=5,
                                                                                                  padx=10, pady=10)
     f_1.pack(anchor="w")
 
     f_2 = Frame(fbmain, borderwidth=8, bg="orange")
 
     Label(f_2, text="Password", font="comicsansms 12 bold", bg="orange", fg="white").pack(pady=5, side="left")
-    pass_ = Entry(f_2, textvariable=passwrd, bg="#ffe05d", fg="white", font="Arial 12 bold").pack(ipady=5, ipadx=5,
+    Entry(f_2, textvariable=passwrd, bg="#ffe05d", fg="white", font="Arial 12 bold").pack(ipady=5, ipadx=5,
                                                                                                   padx=10, pady=10)
     f_2.pack(anchor="w")
 
@@ -363,6 +375,7 @@ def studentDashboard():
         studentEmail = myresult[0][7]
         studentCourse=myresult[0][9]
         studentUsername=myresult[0][11]
+        studentResult=myresult[0][13]
         # ---------------------------------------------------------------------------------------------------
 
         # adding top frame
@@ -434,6 +447,7 @@ def studentDashboard():
                 Label(dataFrame, text="Phone", width=20, anchor=W).grid(row=4, column=0)
                 Label(dataFrame, text="Course", width=20, anchor=W).grid(row=5, column=0)
                 Label(dataFrame, text="Username", width=20, anchor=W).grid(row=6, column=0)
+                Label(dataFrame, text="Result", width=20, anchor=W).grid(row=7, column=0)
 
                 Label(dataFrame, text=":").grid(row=0, column=1)
                 Label(dataFrame, text=":").grid(row=1, column=1)
@@ -442,6 +456,7 @@ def studentDashboard():
                 Label(dataFrame, text=":").grid(row=4, column=1)
                 Label(dataFrame, text=":").grid(row=5, column=1)
                 Label(dataFrame, text=":").grid(row=6, column=1)
+                Label(dataFrame, text=":").grid(row=7, column=1)
 
                 Label(dataFrame, text=studentName,width=20, anchor=W).grid(row=0, column=2)
                 Label(dataFrame,text=studentFatName, width=20, anchor=W).grid(row=1, column=2)
@@ -450,8 +465,9 @@ def studentDashboard():
                 Label(dataFrame,text=studentPhoneNum, width=20, anchor=W).grid(row=4, column=2)
                 Label(dataFrame,text=studentCourse, width=20, anchor=W).grid(row=5, column=2)
                 Label(dataFrame, text=studentUsername,width=20, anchor=W).grid(row=6, column=2)
+                Label(dataFrame, text=studentResult, width=20, anchor=W).grid(row=6, column=2)
 
-        # ----------------------------------------------------------------------------------------
+    # ----------------------------------------------------------------------------------------
         # -------------------------------------------------contact us--------------------------------
         # ----------------------------------------------------------------------------------------
         mainframe = Frame(root, bg="#FF5733", bd=2)
