@@ -4,6 +4,9 @@ import mysql.connector as msql
 import tkinter.messagebox as tmsg
 
 
+#--------------Intialization Of the Tkinter---------------
+main_root = Tk()
+
 #------------------Database Connection---------------------------------------------------
 mydb=msql.connect(host="localhost",user="Mahakaal",passwd="Ma4akaa1#@",database="reg_stud")
 
@@ -45,7 +48,7 @@ def isAddmissionPossible(c12thmarks,famIncome):
 
 def save_to_database():
     mycurss = mydb.cursor()
-    result=isAddmissionPossible(per.get(),income.get())
+    result=isAddmissionPossible(int(per.get()),int(income.get()))
     sqlForm = "Insert into student (fname ,lname ,fat_fname, fat_lname ,mot_fname  ,mot_lname  ,phn ,email  ,per ,course ,username  ,pass ,income,result) values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
     student1 = (fName.get(),lName.get(),Fat_fName.get(),Fat_lName.get(),Mot_fName.get(),Mot_lName.get(),phn.get(),email.get(),per.get(),Course.get(),set_user.get(),set_pass.get(),income.get(),result)
     mycurss.execute(sqlForm, student1)
@@ -63,9 +66,9 @@ def check_pass_admin():
         #Todo ----Mention Here index of the admin pass varible
         if i[4] ==passwrd.get():
             #Here we need to call the function of the page of the Admin Dashboard
-            call_admin_dashboard()
+            adminDashboard()
         else:
-            tmsg.showinfo("Error,Wrong Password os Username Try Again")
+            tmsg.showinfo("Error","Wrong Password os Username Try Again")
 
 
 def check_pass_student():
@@ -76,14 +79,11 @@ def check_pass_student():
     myresult = mycurss.fetchall()
     for i in myresult:
         if i[11] == Studentpasswrd.get():
-            #Here we need to call the function of the Student Dashboard
-            call_student_Dashboard()
+            studentDashboard()
+
         else:
-            tmsg.showinfo("Error,Wrong Password os Username Try Again")
+            tmsg.showinfo("Error","Wrong Password or Username Try Again")
 
-
-#--------------Intialization Of the Tkinter---------------
-main_root = Tk()
 
 # ------------------------------------------------------------------------------------------------------------------------
 #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
@@ -284,15 +284,19 @@ def adminDashboard():
 
         # inserting the buttons to the menuTab
         home = Button(menuTab, text="Home", cursor="hand2", borderwidth=0, command=useHome)
-        home.pack(fill=X, padx=10, pady=70)
+        home.pack(fill=X, padx=5, pady=70)
 
         contact = Button(menuTab, text="Contact Us", cursor="hand2", borderwidth=0, command=useContactUs)
-        contact.pack(fill=X, padx=10, pady=50)
+        contact.pack(fill=X, padx=5, pady=50)
 
         profile = Button(menuTab, text="Profile", cursor="hand2", borderwidth=0, command=useAdminDetails)
-        profile.pack(fill=X, padx=10, pady=70)
+        profile.pack(fill=X, padx=5, pady=70)
 
-        # logout = Button(menuTab, text = "Logout", cursor="hand2",borderwidth = 0)
+
+        studentdetail = Button(menuTab, text="Student List", cursor="hand2", borderwidth=0, command=studentDataFetch)
+        studentdetail.pack(fill=X, padx=5, pady=70)
+
+# logout = Button(menuTab, text = "Logout", cursor="hand2",borderwidth = 0)
         # logout.pack(fill= X, padx = 10, pady = 50)
 
         contactUs()
@@ -345,7 +349,7 @@ def adminLoginPage():
                                                                                                   padx=10, pady=10)
     f_2.pack(anchor="w")
 
-    Button(fbmain, text="Connect", cursor="hand2", bg="#0074D9", fg="white", relief=SUNKEN, font="Arial 12 bold",command = adminDashboard).pack()
+    Button(fbmain, text="Connect", cursor="hand2", bg="#0074D9", fg="white", relief=SUNKEN, font="Arial 12 bold",command = check_pass_admin).pack()
 
     fbmain.pack(anchor="w", padx=250, pady=20, fill="x")
 # -----------------------------------------------------------------------------------------------------------
@@ -363,7 +367,7 @@ def studentDashboard():
     # Making Connection With Database to fetch the data  by the help of the username provide by the Student at time login
         str = Studentuser.get()
         mycurss = mydb.cursor()
-        sqlform = "SELECT * FROM admin WHERE username=" + "'" + str + "'"
+        sqlform = "SELECT * FROM student WHERE username=" + "'" + str + "'"
         mycurss.execute(sqlform)
         myresult = mycurss.fetchall()
 
@@ -465,7 +469,7 @@ def studentDashboard():
                 Label(dataFrame,text=studentPhoneNum, width=20, anchor=W).grid(row=4, column=2)
                 Label(dataFrame,text=studentCourse, width=20, anchor=W).grid(row=5, column=2)
                 Label(dataFrame, text=studentUsername,width=20, anchor=W).grid(row=6, column=2)
-                Label(dataFrame, text=studentResult, width=20, anchor=W).grid(row=6, column=2)
+                Label(dataFrame, text=studentResult, width=20, anchor=W).grid(row=7, column=2)
 
     # ----------------------------------------------------------------------------------------
         # -------------------------------------------------contact us--------------------------------
@@ -620,17 +624,17 @@ def studentLoginPage():
 
     f_1 = Frame(fbmain, borderwidth=8, bg="orange")
     Label(f_1, text="Username", font="comicsansms 12 bold", bg="orange", fg="white").pack(pady=5, side="left")
-    userEnt = Entry(f_1, textvariable=Studentuser, bg="#ffe05d", fg="white", font="Arial 12 bold").pack(ipady=5, ipadx=5,
+    Entry(f_1, textvariable=Studentuser, bg="#ffe05d", fg="white", font="Arial 12 bold").pack(ipady=5, ipadx=5,
                                                                                                  padx=10, pady=10)
     f_1.pack(anchor="w")
 
     f_2 = Frame(fbmain, borderwidth=8, bg="orange")
     Label(f_2, text="Password", font="comicsansms 12 bold", bg="orange", fg="white").pack(pady=5, side="left")
-    pass_ = Entry(f_2, textvariable=Studentpasswrd, bg="#ffe05d", fg="white", font="Arial 12 bold").pack(ipady=5, ipadx=5,
+    Entry(f_2, textvariable=Studentpasswrd, bg="#ffe05d", fg="white", font="Arial 12 bold").pack(ipady=5, ipadx=5,
                                                                                                   padx=10, pady=10)
     f_2.pack(anchor="w")
 
-    Button(fbmain, text="Connect", cursor="hand2", bg="#0074D9", fg="white", relief=SUNKEN, font="Arial 12 bold",command= studentDashboard).pack()
+    Button(fbmain, text="Connect", cursor="hand2", bg="#0074D9", fg="white", relief=SUNKEN, font="Arial 12 bold",command= check_pass_student).pack()
 
     fbmain.pack(anchor="w", padx=250, pady=20, fill="x")
 
@@ -646,8 +650,6 @@ main_reg = Frame(main_root)
 main_reg.pack(fill=BOTH)
 
 def registrationPage():
-
-
     fon = font.Font(size=14, weight="bold")
 
     # -------------------------------Heading---------------------
@@ -738,7 +740,7 @@ def registrationPage():
 
     f_m1.pack()
 
-    Button(fbmain, text="Submit", cursor="hand2", bg="#0074D9", fg="white", relief=SUNKEN, font="Arial 12 bold", command =useStudent_login).pack()
+    Button(fbmain, text="Submit", cursor="hand2", bg="#0074D9", fg="white", relief=SUNKEN, font="Arial 12 bold", command =save_to_database).pack()
     fbmain.pack(anchor="w", padx=250, pady=20, fill="x")
 # -----------------------------------------------------------------------------------------------------------
 # ***************************************************************xxxxxxxxxxxxxx***********************************
