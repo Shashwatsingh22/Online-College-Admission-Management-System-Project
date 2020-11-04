@@ -30,6 +30,13 @@ passwrd = StringVar()
 Studentuser = StringVar()
 Studentpasswrd = StringVar()
 
+#---------------Frames Variable----------------------------------------
+student_login = Frame(main_root)
+student_login.pack( fill = BOTH)
+
+admin_login_frame = Frame(main_root)
+admin_login_frame.pack(fill = BOTH)
+
 #--------------------------------This will help us to take the student addmission or Not------------
 def isAddmissionPossible(c12thmarks,famIncome):
     if c12thmarks >= 75 and famIncome <= 250000:
@@ -312,8 +319,7 @@ def adminDashboard():
 # ----------------------------------------------------------------------------------------------------
 # ************************************** ADMIN LOGIN PAGE ****************************************
 # --------------------------------------------------------------------------------------------------
-admin_login_frame = Frame(main_root)
-admin_login_frame.pack(fill = BOTH)
+
 
 def adminLoginPage():
     # -----------------Functions--------
@@ -598,8 +604,7 @@ def studentDashboard():
 # *************************************************************** STUDENT LOGIN PAGE ***********************************
 # -----------------------------------------------------------------------------------------------------------
 
-student_login = Frame(main_root)
-student_login.pack( fill = BOTH)
+
 
 def studentLoginPage():
     main_root.geometry("800x500")
