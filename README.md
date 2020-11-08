@@ -37,21 +37,21 @@ Just Clone this repositry : git clone https://github.com/Shashwatsingh22/Online-
 ```
 
 ## Demo
-<h3>Main Login Option Page</h3>
+### Main Login Option Page
 ![1](https://raw.githubusercontent.com/Shashwatsingh22/Online-College-Admission-Management-System-Project/main/Demo/1.png)
-<h3>Admin Login Page</h3>
+### Admin Login Page
 ![2](https://raw.githubusercontent.com/Shashwatsingh22/Online-College-Admission-Management-System-Project/main/Demo/ad1.png)
-<h3>Admin Dashboard</h3>
+### Admin Dashboard
 ![3](https://raw.githubusercontent.com/Shashwatsingh22/Online-College-Admission-Management-System-Project/main/Demo/ad2.png)
 ![4](https://raw.githubusercontent.com/Shashwatsingh22/Online-College-Admission-Management-System-Project/main/Demo/ad3.png)
 ![5](https://raw.githubusercontent.com/Shashwatsingh22/Online-College-Admission-Management-System-Project/main/Demo/ad4.png)
-<h3>Student Login Page</h3>
+### Student Login Page
 ![6](https://raw.githubusercontent.com/Shashwatsingh22/Online-College-Admission-Management-System-Project/main/Demo/st1.png)
-<h3>Student Dashboard</h3>
+### Student Dashboard
 ![7](https://raw.githubusercontent.com/Shashwatsingh22/Online-College-Admission-Management-System-Project/main/Demo/st2.png)
 ![8](https://raw.githubusercontent.com/Shashwatsingh22/Online-College-Admission-Management-System-Project/main/Demo/st3.png)
 ![9](https://raw.githubusercontent.com/Shashwatsingh22/Online-College-Admission-Management-System-Project/main/Demo/st4.png)
-<h3>New Student Registration Form</h3>
+### New Student Registration Form
 ![10](https://raw.githubusercontent.com/Shashwatsingh22/Online-College-Admission-Management-System-Project/main/Demo/5.png)
 
 
