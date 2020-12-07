@@ -1,2 +1,0 @@
-uname-->admin
-pass-->#@256
